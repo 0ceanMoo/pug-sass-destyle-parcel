@@ -1,0 +1,20 @@
+{
+  "name": "02",
+  "version": "1.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-postcss": "^2.0.0-rc.0",
+    "@parcel/transformer-pug": "2.0.0-rc.0",
+    "@parcel/transformer-sass": "2.0.0-rc.0",
+    "autoprefixer": "^10.3.4",
+    "parcel": "^2.0.0-rc.0",
+    "tailwindcss": "^2.2.12"
+  },
+  "scripts": {
+    "build": "parcel build ./src/pug/*",
+    "dev": "parcel ./src/pug/*"
+  },
+  "dependencies": {
+    "destyle.css": "^3.0.0"
+  }
+}

@@ -1,0 +1,97 @@
+- var pageTitle = "pugのサンプル"
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title #{pageTitle}
+    <link href="../sass/index.sass" rel="stylesheet">
+    //style(type="css/sass").
+  body
+    h1 Pugの使い方
+    section
+      h2 基本
+      p.text
+        | テキストテキストテキストテキストテキスト
+        br
+        | テキストテキストテキストテキストテキスト
+      p.text
+        a.link(href='#') リンク
+      p.image: img(
+        src='#'
+        width='80px'
+        height='80px'
+      )
+      // ソースに出力されるコメントアウト
+        p インデントで複数行コメント - 1
+        p インデントで複数行コメント - 1
+        p インデントで複数行コメント - 1
+      //- ソースに出力されないコメントアウト
+        p インデントで複数行コメント - 2
+        p インデントで複数行コメント - 2
+        p インデントで複数行コメント - 2
+
+    section
+      h2 for
+      ul
+        - for (var x=0; x<3; x++)
+          li アイテム#{x}
+
+    section
+      h2 each
+      div
+        - var list = ['プレステ４', 'Nintendo Switch', 'Xbox']
+        ul
+          each item in list
+            li #{item}
+
+      div
+        -
+          var pages = [
+            {
+              pageName: 'アバウト',
+              pageDir: 'about'
+            },
+            {
+              pageName: '事業内容',
+              pageDir: 'product'
+            },
+            {
+              pageName: 'お問い合わせ',
+              pageDir: 'contact'
+            }
+          ]
+        ul.gnav
+          each page in pages
+            li: a(href='/'+page['pageDir']+'/') #{page['pageName']}
+
+    section
+      h2 if / unless
+      - var pref = 'tokyo'
+      if pref=='tokyo'
+        p 東京です。
+      else if pref=='大阪'
+        p 大阪です。
+      else
+        p わかりません。
+      // p unlessは存在するということだけ頭に入れておくこと
+
+
+    section
+      h2 switch
+
+      - var city = 'yoyogi'
+      case city
+        when 'shinjuku'
+          p 新宿です。
+          - break
+        when 'ikebukuro'
+          p 池袋です。
+          - break
+        when 'yoyogi'
+        when 'sibuya'
+          p 渋谷です。
+          - break
+        default
+          p わかりません。
+
